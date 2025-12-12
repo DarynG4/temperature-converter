@@ -16,3 +16,23 @@ function convertToCelsius(fahrenheit) {
  * @param {number} temperature in fahrenheit
  * @returns {string} a description of the temperature according to celsius
  */
+function describeTemperature(fahrenheit) {
+  let celsius = convertToCelsius(fahrenheit);
+  let description = "";
+  if (celsius < 0) {
+    description = `It is very cold`;
+  } else if (celsius < 20) {
+    description = `It is cold`;
+  } else if (celsius < 30) {
+    description = `It is warm`;
+  } else if (celsius < 40) {
+    description = `It is hot`;
+  } else if (celsius >= 40) {
+    description = `It is very hot`;
+  }
+  return `${fahrenheit}°F is ${celsius}°C. ${description}`;
+}
+
+let fahrenheit = prompt("What is your current temperature in Fahrenheit?");
+let description = describeTemperature(fahrenheit);
+alert(description);
